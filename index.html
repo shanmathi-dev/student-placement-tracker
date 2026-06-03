@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Placement Tracker</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <script>
+
+    if(
+    sessionStorage.getItem("loggedIn")
+    !== "true"
+    ){
+        window.location.href = "login.html";
+    }
+
+    function logout(){
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    }
+
+    function toggleDarkMode(){
+        document.body.classList.toggle("dark-mode");
+    }
+
+    </script>
+
+<div class="sidebar">
+
+    <h2>🎓 SPT</h2>
+
+    <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="#" onclick="toggleDarkMode()">🌙 Dark Mode</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <header>
+        <h1>Student Placement Tracker Dashboard</h1>
+    </header>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Selected</h3>
+            <p id="selectedStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Rejected</h3>
+            <p id="rejectedStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Placement %</h3>
+            <p id="placementRate">0%</p>
+        </div>
+
+    </div>
+
+    <div class="chart-container">
+        <canvas id="placementChart"></canvas>
+    </div>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

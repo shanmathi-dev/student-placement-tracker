@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f7fc;
+}
+
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    background:#1e293b;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:15px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:white;
+    display:block;
+    padding:12px;
+    border-radius:8px;
+}
+
+.sidebar ul li a:hover{
+    background:#334155;
+}
+
+.main-content{
+    flex:1;
+    padding:25px;
+}
+
+header{
+    margin-bottom:20px;
+}
+.dark-mode{
+    background:#111827;
+    color:white;
+}
+
+.dark-mode .sidebar{
+    background:#000;
+}
+
+.dark-mode .card{
+    background:#1f2937;
+    color:white;
+}
+
+.dark-mode .chart-container{
+    background:#1f2937;
+}
+
+.dark-mode .main-content{
+    background:#111827;
+    color:white;
+}
+.chart-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:400px;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Reports</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    margin-top:20px;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.stats-box{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stats-box h3{
+    margin-bottom:10px;
+}
+
+.stats-box p{
+    font-size:28px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>🎓 SPT</h2>
+
+    <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="settings.html">Settings</a></li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <h1>🏢 Company Reports</h1>
+
+    <div class="stats-box">
+        <h3>Total Companies</h3>
+        <p id="totalCompanies">0</p>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Applied</th>
+                <th>Selected</th>
+                <th>Rejected</th>
+            </tr>
+        </thead>
+
+        <tbody id="companyTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script type="module" src="js/companies.js"></script>
+
+</body>
+</html>

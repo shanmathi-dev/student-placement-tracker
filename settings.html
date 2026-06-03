@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Student Placement Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.settings-container{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.settings-container h2{
+    margin-bottom:20px;
+}
+
+.settings-btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    margin:10px 10px 10px 0;
+    font-size:15px;
+}
+
+.export-btn{
+    background:#2563eb;
+}
+
+.clear-btn{
+    background:#dc2626;
+}
+
+.dark-btn{
+    background:#111827;
+}
+
+.settings-btn:hover{
+    opacity:0.9;
+}
+.settings-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.settings-buttons button{
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+}
+
+.settings-buttons button:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
+}
+
+.pdf-btn{
+    background:#10b981;
+    color:white;
+}
+
+.export-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.clear-btn{
+    background:#ef4444;
+    color:white;
+}
+
+.dark-btn{
+    background:#111827;
+    color:white;
+}
+@media(max-width:768px){
+
+.settings-buttons{
+    flex-direction:column;
+}
+
+.settings-buttons button{
+    width:100%;
+}
+
+.pdf-btn{
+background:#10b981;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>🎓 SPT</h2>
+
+    <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="settings.html">Settings</a></li>
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <h1>⚙ Settings</h1>
+
+    <div class="settings-buttons">
+
+    <button class="pdf-btn" onclick="downloadPDF()">
+    📄 Download PDF
+    </button>
+
+    <button class="export-btn" onclick="exportCSV()">
+    📊 Export CSV
+    </button>
+
+    <button class="clear-btn" onclick="clearData()">
+    🗑 Clear All Data
+    </button>
+
+    <button class="dark-btn" onclick="toggleDarkMode()">
+    🌙 Toggle Dark Mode
+    </button>
+
+</div>
+
+
+</div>
+
+<script>
+
+function exportCSV(){
+
+    let students =
+    JSON.parse(localStorage.getItem("students")) || [];
+
+    let csv =
+    "Name,Department,Company,Status\n";
+
+    students.forEach(student => {
+
+        csv +=
+        `${student.name},${student.department},${student.company},${student.status}\n`;
+
+    });
+
+    let blob =
+    new Blob([csv], {type:"text/csv"});
+
+    let link =
+    document.createElement("a");
+
+    link.href =
+    URL.createObjectURL(blob);
+
+    link.download =
+    "students.csv";
+
+    link.click();
+}
+
+function clearData(){
+
+    if(confirm("Delete all student records?")){
+
+        localStorage.clear();
+
+        alert("All records deleted successfully!");
+
+        location.reload();
+    }
+
+}
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark-mode");
+
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="js/settings.js"></script>
+
+</body>
+</html>

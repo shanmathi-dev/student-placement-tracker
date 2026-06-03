@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Students Management</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.form-container{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.add-btn{
+    background:#2563eb;
+    color:white;
+}
+
+table{
+    width:100%;
+    background:white;
+    border-collapse:collapse;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.edit-btn{
+    background:orange;
+    color:white;
+}
+
+.delete-btn{
+    background:red;
+    color:white;
+}
+img{
+    border-radius:50%;
+    object-fit:cover;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🎓 SPT</h2>
+
+<ul>
+<li><a href="index.html">Dashboard</a></li>
+<li><a href="students.html">Students</a></li>
+<li><a href="companies.html">Companies</a></li>
+<li><a href="analytics.html">Analytics</a></li>
+<li><a href="settings.html">Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main-content">
+
+<h1>Student Management</h1>
+
+<div class="form-container">
+
+<div class="form-group">
+<input type="text" id="name" placeholder="Student Name">
+</div>
+
+<div class="form-group">
+<input type="text" id="department" placeholder="Department">
+</div>
+
+<div class="form-group">
+<input type="text" id="company" placeholder="Company">
+</div>
+
+<div class="form-group">
+    <input type="file" id="photo" accept="image/*">
+</div>
+
+<div class="form-group">
+<select id="status">
+
+<option value="Applied">Applied</option>
+<option value="Selected">Selected</option>
+<option value="Rejected">Rejected</option>
+</select>
+</div>
+
+<button class="add-btn" onclick="addStudent()">
+Add Student
+</button>
+
+<select id="companyFilter" onchange="filterCompany()">
+    <option value="All">All Companies</option>
+</select>
+
+</div>
+
+<input
+type="text"
+id="search"
+placeholder="Search Student"
+onkeyup="searchStudent()"
+>
+
+<br><br>
+
+<table>
+
+<thead>
+<tr>
+<th>Photo</th>
+<th>Name</th>
+<th>Department</th>
+<th>Company</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script type="module" src="js/students.js"></script>
+
+</body>
+</html>

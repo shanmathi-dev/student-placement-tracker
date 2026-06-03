@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.analytics-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:28px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.chart-box{
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+    width:90%;
+    max-width:900px;
+    height:350px;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.chart-box canvas{
+    width:100% !important;
+    height:100% !important;
+}
+.recent-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.recent-table th,
+.recent-table td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.recent-table th{
+background:#2563eb;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🎓 SPT</h2>
+
+<ul>
+<li><a href="index.html">Dashboard</a></li>
+<li><a href="students.html">Students</a></li>
+<li><a href="companies.html">Companies</a></li>
+<li><a href="analytics.html">Analytics</a></li>
+<li><a href="settings.html">Settings</a></li>
+</ul>
+
+</div>
+
+<div class="main-content">
+
+<h1>📊 Analytics Dashboard</h1>
+
+<div class="analytics-cards">
+
+<div class="card">
+<h3>Total Students</h3>
+<p id="totalStudents">0</p>
+</div>
+
+<div class="card">
+<h3>Selected</h3>
+<p id="selectedStudents">0</p>
+</div>
+
+<div class="card">
+<h3>Rejected</h3>
+<p id="rejectedStudents">0</p>
+</div>
+
+<div class="card">
+<h3>Placement %</h3>
+<p id="placementRate">0%</p>
+</div>
+
+</div>
+
+<div class="chart-box">
+    <canvas id="placementChart"></canvas>
+</div>
+
+<div class="chart-box">
+    <canvas id="companyChart"></canvas>
+</div>
+
+<div class="chart-box">
+
+<h2>Recent Placements</h2>
+
+<table class="recent-table">
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Department</th>
+<th>Company</th>
+</tr>
+</thead>
+
+<tbody id="recentPlacements">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/analytics.js"></script>
+
+</body>
+</html>
