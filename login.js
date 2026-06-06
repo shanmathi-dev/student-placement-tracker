@@ -32,18 +32,13 @@ sessionStorage.setItem(
 "true"
 );
 
-alert("Login Successful");
-
 window.location.href =
 "index.html";
 
 }
 catch(error){
 
-console.log(error.code);
-console.log(error.message);
-
-alert(error.code);
+alert(error.message);
 
 }
 
