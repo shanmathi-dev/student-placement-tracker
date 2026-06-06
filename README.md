@@ -54,27 +54,27 @@ A modern web-based Student Placement Tracker developed using HTML, CSS, JavaScri
 
 ### Login Page
 
-![Login](images/login.png)
+![Login](login.png)
 
 ### Dashboard
 
-![Dashboard](images/dashboard.png)
+![Dashboard](dashboard.png)
 
 ### Student Management
 
-![Students](images/student.png)
+![Students](student.png)
 
 ### Company Reports
 
-![Companies](images/companies.png)
+![Companies](companies.png)
 
 ### Analytics Dashboard
 
-![Analytics](images/analytics.png)
+![Analytics](analytics.png)
 
 ### PDF Export
 
-![PDF](images/pdf.png)
+![PDF](pdf.png)
 
 ---
 
