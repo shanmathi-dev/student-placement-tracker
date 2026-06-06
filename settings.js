@@ -156,10 +156,7 @@ const student =
 doc.data();
 
 csv +=
-`${student.name},
-${student.department},
-${student.company},
-${student.status}\n`;
+`${student.name},${student.department},${student.company},${student.status}\n`;
 
 });
 
@@ -167,7 +164,7 @@ let blob =
 new Blob(
 [csv],
 {
-type:"text/csv"
+type:"text/csv;charset=utf-8;"
 }
 );
 
@@ -178,9 +175,13 @@ link.href =
 URL.createObjectURL(blob);
 
 link.download =
-"students.csv";
+"Student_Placement_Report.csv";
+
+document.body.appendChild(link);
 
 link.click();
+
+document.body.removeChild(link);
 
 };
 
