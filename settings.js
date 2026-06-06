@@ -152,15 +152,14 @@ let csv =
 
 querySnapshot.forEach((doc)=>{
 
-const student =
-doc.data();
+const student = doc.data();
 
 csv +=
-`${student.name},${student.department},${student.company},${student.status}\n`;
+`"${student.name}","${student.department}","${student.company}","${student.status}"\n`;
 
 });
 
-let blob =
+const blob =
 new Blob(
 [csv],
 {
@@ -168,7 +167,7 @@ type:"text/csv;charset=utf-8;"
 }
 );
 
-let link =
+const link =
 document.createElement("a");
 
 link.href =
@@ -177,11 +176,7 @@ URL.createObjectURL(blob);
 link.download =
 "Student_Placement_Report.csv";
 
-document.body.appendChild(link);
-
 link.click();
-
-document.body.removeChild(link);
 
 };
 
@@ -207,5 +202,12 @@ alert(
 location.reload();
 
 }
+
+};
+window.toggleDarkMode = function(){
+
+document.body.classList.toggle(
+"dark-mode"
+);
 
 };

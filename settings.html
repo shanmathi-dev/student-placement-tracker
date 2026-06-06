@@ -153,61 +153,7 @@ font-size:16px;
 
 </div>
 
-
 </div>
-
-<script>
-
-function exportCSV(){
-
-    let students =
-    JSON.parse(localStorage.getItem("students")) || [];
-
-    let csv =
-    "Name,Department,Company,Status\n";
-
-    students.forEach(student => {
-
-        csv +=
-        `${student.name},${student.department},${student.company},${student.status}\n`;
-
-    });
-
-    let blob =
-    new Blob([csv], {type:"text/csv"});
-
-    let link =
-    document.createElement("a");
-
-    link.href =
-    URL.createObjectURL(blob);
-
-    link.download =
-    "students.csv";
-
-    link.click();
-}
-
-function clearData(){
-
-    if(confirm("Delete all student records?")){
-
-        localStorage.clear();
-
-        alert("All records deleted successfully!");
-
-        location.reload();
-    }
-
-}
-
-function toggleDarkMode(){
-
-    document.body.classList.toggle("dark-mode");
-
-}
-
-</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="settings.js"></script>
